@@ -13,7 +13,7 @@ export default {
       let loadingCountUsers
       if (nextCountUsers > prevCountUsers) {
         loadingCountUsers = nextCountUsers - prevCountUsers
-        getUsers(ctx.state.count)
+        getUsers(loadingCountUsers)
           .then(({ data }) => {
             ctx.commit('addUsers', data.results)
           })
@@ -26,13 +26,17 @@ export default {
   },
   mutations: {
     addUsers (state, users) {
-      state.users = users
+      state.users.push(...users)
     },
     setCount (state, count) {
       state.count = count
     },
     removeUsers (state, count) {
-      state.users.splice(0, count)
+      let i = 0
+      while (i <= count) {
+        state.users.pop()
+        i++
+      }
     }
   },
   getters: {

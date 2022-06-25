@@ -1,14 +1,14 @@
 <template>
-  <div class="container-flex">
-    <img class="image" :src="user.picture.medium" alt="avatar">
+  <div  class="container-flex">
+    <img v-if="user" class="image" :src="user.picture.medium" alt="avatar">
     <div class="info">
       <div class="container">
-        <p>Имя: <span>{{user.name.first}}</span></p>
-        <p>Фамилия: <span>{{user.name.last}}</span></p>
+        <p>Имя: <span>{{user.name.first || '-'}}</span></p>
+        <p>Фамилия: <span>{{user.name.last|| '-'}}</span></p>
       </div>
       <div class="container">
-        <p>Телефон: <span>{{user.phone}}</span></p>
-        <p>Почта: <span>{{user.email}}</span></p>
+        <p>Телефон: <span>{{user.phone || '-'}}}</span></p>
+        <p>Почта: <span>{{user.email || '-'}}}</span></p>
       </div>
     </div>
     <button @click="click()" class="back">Вернуться</button>
