@@ -5,7 +5,15 @@ import usersModule from '@/store/modules/UsersModule'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  state: {
+    isLoader: false
+  },
+  mutations: {
+    setLoader (state, isLoader) {
+      state.isLoader = isLoader
+    }
+  },
   modules: {
-    users: usersModule
+    usersModule
   }
 })

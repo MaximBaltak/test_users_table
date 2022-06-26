@@ -6,8 +6,16 @@ import UserComponent from '@/pages/UserComponent'
 Vue.use(VueRouter)
 
 const routes = [
-  { path: '', component: MainComponent, name: 'main' },
-  { path: '/:id', component: UserComponent, name: 'user' }
+  {
+    path: '',
+    component: MainComponent,
+    name: 'main'
+  },
+  {
+    path: '/:id?',
+    component: UserComponent,
+    name: 'user'
+  }
 ]
 
 const router = new VueRouter({
